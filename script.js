@@ -28,9 +28,12 @@ var controller = (function(UICtrl) {
 	var addToDo = function() {
 		var toDoItem
 
-		// 1. Get input fields
+		// 1. Get input value 
 		toDoItem = UICtrl.getInputValue();
-		console.log(toDoItem);
+		
+		// 2. Add input value to data
+		
+		// 3. Display input value to UI
 	}
 
 	return {
