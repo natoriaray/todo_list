@@ -26,7 +26,7 @@ input {
  padding: 3px 10px;
 }
 
-button {
+.add_btn {
   width: 65px;
   height: 38px;
   background-color: #E85676;
@@ -36,6 +36,24 @@ button {
   border-radius: 4px;
 }
 
-button:hover {
+.add__btn:hover {
   background-color: #CF4C69;
+}
+
+.delete_btn {
+  background-color: Transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.list {
+  margin-top: 30px;
+}
+
+.list_item {
+
+}
+
+.delete_item {
+  float: right;
 }

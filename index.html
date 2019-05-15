@@ -8,16 +8,25 @@
   </head>
   <body>
     <div class="wrapper">
-
       <h1>To Do List</h1>
 
       <div class="input">
         <input type="input" value="">
-        <button type="submit">Add</button>
+        <button class="add_btn" type="submit">Add</button>
+      </div>
+
+      <div class="list">
+        <div class="list_item">
+          <div class="item__description">Wash clothes</div>
+          <div class="delete_item">
+            <button class="delete_btn"type="button" name="button"><ion-icon name="close"></ion-icon></button>
+          </div>
+        </div>
       </div>
 
 
     </div>
   </body>
   <script src="script.js"></script>
+  <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
 </html>
