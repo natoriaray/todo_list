@@ -71,7 +71,7 @@ input[type="text"] {
 }
 
 .delete_item {
-  padding-top: 3px;
+  padding-top: 4px;
   float: right;
   cursor: pointer;
 }
