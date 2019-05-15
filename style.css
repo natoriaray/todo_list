@@ -21,19 +21,26 @@ h1 {
 
 input {
  width: 360px;
- height: 30px;
+ height: 35px;
  border: 1px solid #ccc;
  padding: 3px 10px;
 }
 
+input[type="text"] {
+  font-size: 20px;
+}
+
+
+
 .add_btn {
   width: 65px;
-  height: 38px;
+  height: 40px;
   background-color: #E85676;
   color: white;
   cursor: pointer;
   border: none;
   border-radius: 4px;
+  font-size: 15px
 }
 
 .add__btn:hover {
@@ -47,13 +54,33 @@ input {
 }
 
 .list {
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
 .list_item {
+  margin-left: 240px;
+  margin-right: 240px;
+}
+
+.item_description {
+  font-family: 'Nunito';
+  float: left;
+  font-size: 20px;
+  color: #292f33;
 
 }
 
 .delete_item {
+  padding-top: 3px;
   float: right;
+  cursor: pointer;
+}
+
+ion-icon {
+  font-size: 23px;
+  color: #292f33;
+}
+
+ion-icon:hover {
+  color: red;
 }
