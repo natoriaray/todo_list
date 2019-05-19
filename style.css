@@ -5,18 +5,26 @@
 
 body {
   background-color: #3CCEE8;
+
+}
+
+/*TOP SECTION*/
+.top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 0;
 }
 
 h1 {
   color: #3C73E8;
   font-size: 50px;
   font-family: 'Nunito';
-  padding-top: 80px;
-  padding-bottom: 30px;
 }
 
-.wrapper {
-  text-align: center;
+.input {
+  padding-top: 30px;
 }
 
 input {
@@ -47,19 +55,28 @@ input[type="text"] {
   background-color: #CF4C69;
 }
 
+/*
+
 .delete_btn {
   background-color: Transparent;
   border: none;
   cursor: pointer;
 }
 
-.list {
+section {
   margin-top: 50px;
+  height: calc(100vh - 200px);
+}
+
+.list {
+  width: 100%;
+  height: 100%;
 }
 
 .list_item {
   margin-left: 240px;
   margin-right: 240px;
+  padding: 13px;
 }
 
 .item_description {
@@ -84,3 +101,4 @@ ion-icon {
 ion-icon:hover {
   color: red;
 }
+*/
