@@ -9,7 +9,6 @@ var dataContoller = (function() {
 		}
 	}
 
-
 })();
 
 /UI CONTROLLER/
@@ -43,7 +42,6 @@ var UIController = (function() {
 			inputField.value = '';
 			inputField.focus();
 
-			
 		}
 	}
 
@@ -83,8 +81,6 @@ var controller = (function(UICtrl, dataCtrl) {
 			eventListener();
 		}
 	}
-
-
 
 })(UIController, dataContoller);
 controller.init();
