@@ -13,11 +13,14 @@ var dataContoller = (function() {
 })();
 
 /UI CONTROLLER/
-var UIController = (function() {
+var UIController = (function() {	
+
+	var input = '.input_text';
 
 	return {
 		getInputValue: function() {
-			var inputDescription = document.querySelector('.input_text').value;
+			var inputDescription = document.querySelector(input).value;
+
 			return inputDescription;
 		},
 
@@ -33,6 +36,14 @@ var UIController = (function() {
 			//3. Insert new HTML into the DOM
 			document.querySelector('.list').insertAdjacentHTML('beforeend', newHTML);
 
+		},
+
+		clearField: function() {
+			var inputField = document.querySelector(input);
+			inputField.value = '';
+			inputField.focus();
+
+			
 		}
 	}
 
@@ -56,6 +67,9 @@ var controller = (function(UICtrl, dataCtrl) {
 
 		// 3. Add to do item to the UI
 		UICtrl.displayToDoItem(toDoItem);
+
+		//4. Clear input field
+		UICtrl.clearField();
 	}
 
 	return {
