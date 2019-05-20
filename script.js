@@ -54,6 +54,12 @@ var controller = (function(UICtrl, dataCtrl) {
 
 	var eventListener = function() {
 		document.querySelector('.add_btn').addEventListener('click', addToDo)
+
+		document.addEventListener('keypress', function(event) {
+			if (event.keycode === 13 || event.which === 13) {
+				addToDo();
+			}
+		})
 	};
 
 	var addToDo = function() {
