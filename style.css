@@ -60,19 +60,20 @@ input[type="text"] {
 
 .bottom {
   margin-top: 25px;
-  height: calc(100vh - 265px);
+  height: 100%;
 }
 
 .list {
   display: flex;
-  width: 100%;
-  height: calc(100vh - 265px);
-  justify-content: center;
+  margin: 0 200px;
+  height: 100%;
+  flex-flow: column nowrap;
 }
 
 .list_item {
-  width: 500px;
+  padding-left: 250px;
   height: 30px;
+  width: 420px;
 }
 
 .item_description {
