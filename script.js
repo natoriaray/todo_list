@@ -26,7 +26,7 @@ var UIController = (function() {
 			var html, newHTML;
 
 			//1. Create HTML string with placeholder text
-			html = '<div class="list_item"><div class="item_description">%description%</div><div class="delete_item"><button class="delete_btn"type="button" name="button"><ion-icon name="close"></ion-icon></button></div>'
+			html = '<div class="list_item" id="item"><div class="item_description">%description%</div><div class="delete_item"><button class="delete_btn"type="button" name="button"><ion-icon name="close"></ion-icon></button></div>'
 
 			//2. Replace placeholder text with the actual to do item
 			newHTML = html.replace('%description%', item);
@@ -43,8 +43,10 @@ var UIController = (function() {
 
 		deleteToDoItem: function() {
 			document.querySelector('.delete_btn').addEventListener('click', function() {
-				
+				var element = document.querySelector('.list_item');
+				element.parentNode.removeChild(element);
 			})
+
 		}
 	}
 
@@ -79,6 +81,7 @@ var controller = (function(UICtrl, dataCtrl) {
 
 		//4. Clear input field
 		UICtrl.clearField();
+		UICtrl.deleteToDoItem();
 	}
 
 	return {
