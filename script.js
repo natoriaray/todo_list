@@ -33,14 +33,18 @@ var UIController = (function() {
 
 			//3. Insert new HTML into the DOM
 			document.querySelector('.list').insertAdjacentHTML('beforeend', newHTML);
-
 		},
 
 		clearField: function() {
 			var inputField = document.querySelector(input);
 			inputField.value = '';
 			inputField.focus();
+		},
 
+		deleteToDoItem: function() {
+			document.querySelector('.delete_btn').addEventListener('click', function() {
+				
+			})
 		}
 	}
 
@@ -70,8 +74,6 @@ var controller = (function(UICtrl, dataCtrl) {
 		} else {
 			return
 		}
-
-
 		// 3. Add to do item to the UI
 		UICtrl.displayToDoItem(toDoItem);
 
