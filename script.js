@@ -1,6 +1,6 @@
 /DATA STRUCTURE CONTROLLER/
 var dataContoller = (function() {
-	
+
 	var allToDoItems = [];
 
 	return {
@@ -12,14 +12,13 @@ var dataContoller = (function() {
 })();
 
 /UI CONTROLLER/
-var UIController = (function() {	
+var UIController = (function() {
 
 	var input = '.input_text';
 
 	return {
 		getInputValue: function() {
 			var inputDescription = document.querySelector(input).value;
-
 			return inputDescription;
 		},
 
@@ -62,12 +61,16 @@ var controller = (function(UICtrl, dataCtrl) {
 
 	var addToDo = function() {
 		var toDoItem;
-
-		// 1. Get input value 
+		// 1. Get input value
 		toDoItem = UICtrl.getInputValue();
-		
+
 		// 2. Add to do item to data structure array
-		dataCtrl.addToDoItem(toDoItem);
+		if (toDoItem) {
+			dataCtrl.addToDoItem(toDoItem);
+		} else {
+			return
+		}
+
 
 		// 3. Add to do item to the UI
 		UICtrl.displayToDoItem(toDoItem);
