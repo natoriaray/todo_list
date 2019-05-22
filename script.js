@@ -46,10 +46,14 @@ var UIController = (function() {
 				var element = document.querySelector('.list_item');
 				element.parentNode.removeChild(element);
 			})
+		},
 
+		delete: function() {
+			$(".list").on("click", "div", function() {
+	    	$(this).parent().remove();
+				});
 		}
 	}
-
 })();
 
 /CONTROLLER/
@@ -81,7 +85,9 @@ var controller = (function(UICtrl, dataCtrl) {
 
 		//4. Clear input field
 		UICtrl.clearField();
-		UICtrl.deleteToDoItem();
+
+		//5.Create delete to do function
+		UICtrl.delete();
 	}
 
 	return {
