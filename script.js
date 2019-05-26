@@ -50,7 +50,8 @@ var UIController = (function() {
 			html = '<div class="list_item" id="item-%id%"><div class="item_description">%description%</div><div class="delete_item"><button class="delete_btn"type="button" name="button"><ion-icon name="close"></ion-icon></button></div>'
 
 			//2. Replace placeholder text with the actual to do item
-			newHTML = html.replace('%description%', item);
+			newHTML = html.replace('%id%', item.id)
+			newHTML = newHTML.replace('%description%', item.description);
 
 			//3. Insert new HTML into the DOM
 			document.querySelector('.list').insertAdjacentHTML('beforeend', newHTML);
@@ -97,21 +98,24 @@ var controller = (function(UICtrl, dataCtrl) {
 	}
 
 	var addToDo = function() {
-		var toDoItemDes;
+		var toDoItemDes, newItem;
 		// 1. Get input value description
 		toDoItemDes = UICtrl.getInputValue();
 
-		// 2. Add to do item to data structure array
 		if (toDoItemDes) {
-			dataCtrl.addToDoItem(toDoItemDes);
-		} else {
-			return
-		}
-		// 3. Add to do item to the UI
-		UICtrl.displayToDoItem(toDoItem);
 
-		//4. Clear input field
-		UICtrl.clearField();
+			// 2. Add to do item to data structure array
+			newItem = dataCtrl.addToDoItem(toDoItemDes);
+			console.log(newItem.id)
+			// 3. Add to do item to the UI
+			UICtrl.displayToDoItem(newItem);
+
+			//4. Clear input field
+			UICtrl.clearField();
+
+
+		}
+
 
 	};
 
