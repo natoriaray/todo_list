@@ -1,11 +1,32 @@
 /DATA STRUCTURE CONTROLLER/
 var dataContoller = (function() {
 
+	var Item = function(id, description) {
+		this.id = id;
+		this.description = description;
+	}
+
 	var allToDoItems = [];
 
 	return {
-		addToDoItem: function(item) {
-			allToDoItems.push(item);
+		addToDoItem: function(des) {
+			var newItem, ID;
+
+			//create new ID for to do item
+			if (allToDoItems.length > 0) {
+				ID = allToDoItems[allToDoItems.length - 1].id + 1;
+			} else {
+				ID = 0;
+			}
+
+			//create new item
+			newItem = new Item(ID, des);
+
+			//add new to do item to data structure
+			allToDoItems.push(newItem);
+
+			//return to do item
+			return newItem;
 		}
 	}
 
@@ -26,7 +47,7 @@ var UIController = (function() {
 			var html, newHTML;
 
 			//1. Create HTML string with placeholder text
-			html = '<div class="list_item" id="item"><div class="item_description">%description%</div><div class="delete_item"><button class="delete_btn"type="button" name="button"><ion-icon name="close"></ion-icon></button></div>'
+			html = '<div class="list_item" id="item-%id%"><div class="item_description">%description%</div><div class="delete_item"><button class="delete_btn"type="button" name="button"><ion-icon name="close"></ion-icon></button></div>'
 
 			//2. Replace placeholder text with the actual to do item
 			newHTML = html.replace('%description%', item);
@@ -48,11 +69,6 @@ var UIController = (function() {
 			})
 		},
 
-		delete: function() {
-			$(".list").on("click", "div", function() {
-	    	$(this).parent().remove();
-				});
-		}
 	}
 })();
 
@@ -66,17 +82,28 @@ var controller = (function(UICtrl, dataCtrl) {
 			if (event.keycode === 13 || event.which === 13) {
 				addToDo();
 			}
-		})
+		});
+
+		document.querySelector('.list').addEventListener('click', deleteToDo)
 	};
 
+	var deleteToDo = function() {
+		console.log(event.target)
+
+
+		//1.delete to do item from data structure
+
+		//2.Delete to do item from UI
+	}
+
 	var addToDo = function() {
-		var toDoItem;
-		// 1. Get input value
-		toDoItem = UICtrl.getInputValue();
+		var toDoItemDes;
+		// 1. Get input value description
+		toDoItemDes = UICtrl.getInputValue();
 
 		// 2. Add to do item to data structure array
-		if (toDoItem) {
-			dataCtrl.addToDoItem(toDoItem);
+		if (toDoItemDes) {
+			dataCtrl.addToDoItem(toDoItemDes);
 		} else {
 			return
 		}
@@ -86,9 +113,7 @@ var controller = (function(UICtrl, dataCtrl) {
 		//4. Clear input field
 		UICtrl.clearField();
 
-		//5.Create delete to do function
-		UICtrl.delete();
-	}
+	};
 
 	return {
 		init: function() {
